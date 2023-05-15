@@ -12,7 +12,7 @@ else ifeq ($(shell uname),Linux)
     GOOS = linux
     GOARCH = $(shell arch)
     EXEEXT =
-else ifeq ($(filter windows,$(shell uname)),windows)
+ifeq ($(OS),Windows_NT)
     GOOS = windows
     GOARCH = amd64
     EXEEXT = .exe
