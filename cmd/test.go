@@ -1,12 +1,13 @@
 /*
 Copyright © 2023 NAME HERE <EMAIL ADDRESS>
-
 */
 package cmd
 
 import (
 	"fmt"
+	"log"
 
+	"github.com/kardianos/service"
 	"github.com/spf13/cobra"
 )
 
@@ -45,13 +46,6 @@ func init() {
 // license that can be found in the LICENSE file.
 
 // simple does nothing except block while running the service.
-package main
-
-import (
-	"log"
-
-	"github.com/kardianos/service"
-)
 
 var logger service.Logger
 
@@ -62,9 +56,11 @@ func (p *program) Start(s service.Service) error {
 	go p.run()
 	return nil
 }
+
 func (p *program) run() {
 	// Do work here
 }
+
 func (p *program) Stop(s service.Service) error {
 	// Stop should not block. Return with a few seconds.
 	return nil
