@@ -29,7 +29,7 @@ This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("test called")
-		test()
+		main()
 	},
 }
 
@@ -53,27 +53,6 @@ func init() {
 
 // simple does nothing except block while running the service.
 
-func test() {
-	svcConfig := &service.Config{
-		Name:        "GoServiceExampleSimple",
-		DisplayName: "Go Service Example",
-		Description: "This is an example Go service.",
-	}
-
-	prg := &program{}
-	s, err := service.New(prg, svcConfig)
-	if err != nil {
-		log.Fatal(err)
-	}
-	logger, err = s.Logger(nil)
-	if err != nil {
-		log.Fatal(err)
-	}
-	err = s.Run()
-	if err != nil {
-		logger.Error(err)
-	}
-}
 
 // Copyright 2015 Daniel Theophanes.
 // Use of this source code is governed by a zlib-style
@@ -109,7 +88,7 @@ func (p *program) Start(s service.Service) error {
 	// Verify home directory.
 	fullExec, err := exec.LookPath(p.Exec)
 	if err != nil {
-		return fmt.Errorf("Failed to find executable %q: %v", p.Exec, err)
+		return fmt.Errorf("failed to find executable %q: %v", p.Exec, err)
 	}
 
 	p.cmd = exec.Command(fullExec, p.Args...)
@@ -152,8 +131,6 @@ func (p *program) run() {
 	if err != nil {
 		logger.Warningf("Error running: %v", err)
 	}
-
-	return
 }
 func (p *program) Stop(s service.Service) error {
 	close(p.exit)
