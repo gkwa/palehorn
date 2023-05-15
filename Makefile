@@ -19,10 +19,12 @@ else ifeq ($(OS),Windows_NT)
 endif
 
 APP := palehorn$(EXEEXT)
-
 TARGET := ./dist/palehorn_$(GOOS)_$(GOARCH)_v1/$(APP)
 
 $(APP): $(TARGET)
+	cp $< $@
+
+palehorn: $(TARGET)
 	cp $< $@
 
 $(TARGET): $(SOURCES)
