@@ -5,8 +5,6 @@ package main
 
 import "github.com/taylormonacelli/palehorn/cmd"
 
-
-
 func main() {
 	cmd.Execute()
 }
