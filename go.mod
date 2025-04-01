@@ -2,7 +2,7 @@ module github.com/taylormonacelli/palehorn
 
 go 1.21.0
 
-toolchain go1.24.1
+toolchain go1.24.2
 
 require (
 	github.com/kardianos/service v1.2.2
