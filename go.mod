@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.26.5
 
 require (
-	github.com/kardianos/service v1.2.4
+	github.com/kardianos/service v1.3.0
 	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
 )
